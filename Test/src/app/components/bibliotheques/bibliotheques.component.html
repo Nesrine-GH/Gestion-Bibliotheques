@@ -1,0 +1,62 @@
+<main class="container">
+    <h2 class="text-center text-success "> ***Nos Bibliothèques du VAR*** </h2>
+  <form (ngSubmit)="getNbrAdherantBetween(b.value)" #b="ngForm" class="mt-4 mb-4" >
+    <div class="row g-3 align-items-center">
+      
+      <div class="col-auto">
+        <input name="min" ngModel type="Text"  class="form-control" placeholder="Valeur Min SVP Mr!">
+      </div>
+     
+      <div class="col-auto">
+        <input name="max" ngModel type="Text"  class="form-control" placeholder="Valeur Max SVP Mr!">
+      </div>
+      <button  class="btn btn-warning mt-4" type="submit">Chercher Par Valeur</button>
+
+    </div>
+  </form>
+
+
+
+
+
+    <section class="row">
+  
+      <article class="col-4 mt-4  " *ngFor="let p of lalisteBibliotheques._embedded.bibliotheques">
+  
+        <img style=" height :300px;" src="{{p.photo}}" class="card-img-top w-100 "
+          alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center text-danger"> {{p.nom}} </h5>
+          
+          <p class="card-text text-center ">
+            <td>{{p.description}}</td>
+          </p>
+
+          <p class="card-text text-center text-success ">Nombre d'adherants: 
+            {{p.nbrAdherant}}
+          </p>
+          <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="button" class="btn btn-primary btn-sm ">Les Livres présents</button>
+
+
+
+
+
+      </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet> </router-outlet>
